@@ -2,22 +2,21 @@
 module static_function;
   int count;
   
-  function static void behaviour();
-    int value;
-    value = 1;
-    $display("In function The value = %0d | the count = %0d", value, count);
+  function static void behaviour(int cnt);
+    int value = 1;
     value++;
-    count++;
+    cnt++;
+    $display("In function The value = %0d | the count = %0d", value, cnt);
   endfunction
   
   initial begin
     // initialize
     count = 1;
     
-    behaviour(); #1;
-    behaviour(); #1;
-   	behaviour();
-    behaviour();
+    behaviour(count); #1;
+    behaviour(count); #1;
+    behaviour(count);
+    behaviour(count);
     
   end
 endmodule
